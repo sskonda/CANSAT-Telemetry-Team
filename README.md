@@ -1,4 +1,4 @@
-```markdown
+
 # Telemetry Subsystem for SSDC CANSAT Competition  
 
 ## Overview  
@@ -36,5 +36,3 @@ The telemetry subsystem covered in this repository includes the following key re
 - Conduct full end-to-end testing of telemetry data transmission to the ground station.  
 - Implement fault-tolerant mechanisms for power and communication systems during flight.
 
----
-```
