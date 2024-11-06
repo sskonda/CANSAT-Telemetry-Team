@@ -1,2 +1,2 @@
-This is the folder for the Gyroscope code, ensuring that it is configured and fully working.
+This is the folder for integrating the BNO055, BMP280, and GPS code together
 
