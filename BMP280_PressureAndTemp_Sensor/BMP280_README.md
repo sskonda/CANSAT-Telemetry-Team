@@ -1,2 +1,6 @@
-This is the folder for the Gyroscope code, ensuring that it is configured and fully working.
+#BMP280 Code
+
+This is the Airpressure sensor, temperature sennsor, and humidity sensor
+
+##Pseudo code for how to initialize sensor
 
