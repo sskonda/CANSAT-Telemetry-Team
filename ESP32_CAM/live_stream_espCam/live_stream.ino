@@ -1,14 +1,11 @@
 #include "esp_camera.h"
 #include <WiFi.h>
 
-// Define the SSID and Password for the Wi-Fi Access Point
 const char* ssid = "GatorCam";
 const char* password = "Gator1234";
 
-// Create a WiFiServer object to listen for incoming connections
 WiFiServer server(80);
 
-// Select camera model
 #define CAMERA_MODEL_AI_THINKER
 #include "camera_pins.h"
 
@@ -16,11 +13,10 @@ void setup() {
   Serial.begin(115200);
   Serial.println();
 
-  // Start the Wi-Fi access point
   WiFi.softAP(ssid, password);
   Serial.println("WiFi AP started");
 
-  // Start the camera
+  // Camera configuration
   camera_config_t config;
   config.ledc_channel = LEDC_CHANNEL_0;
   config.ledc_timer = LEDC_TIMER_0;
@@ -42,17 +38,12 @@ void setup() {
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 20000000;
   config.pixel_format = PIXFORMAT_JPEG;
-  config.frame_size = FRAMESIZE_QVGA;
-  
+  config.frame_size = FRAMESIZE_VGA;  // Set to 480p resolution
+  config.jpeg_quality = 10;           // Adjust quality for better performance
+  config.fb_count = 1;                // Use 1 buffer for now
 
   if (psramFound()) {
-    config.frame_size = FRAMESIZE_QVGA;
-    config.jpeg_quality = 15;
-    config.fb_count = 2;
-  } else {
-    config.frame_size = FRAMESIZE_QVGA;
-    config.jpeg_quality = 12;
-    config.fb_count = 1;
+    config.fb_count = 2;  // Use 2 buffers if PSRAM is available
   }
 
   esp_err_t err = esp_camera_init(&config);
@@ -61,7 +52,6 @@ void setup() {
     return;
   }
 
-  // Initialize the camera server
   server.begin();
   Serial.println("HTTP server started");
 
@@ -71,7 +61,6 @@ void setup() {
 }
 
 void loop() {
-  // Check if a client has connected
   WiFiClient client = server.available();
   if (client) {
     Serial.println("New client connected");
@@ -79,7 +68,6 @@ void loop() {
     client.flush();
 
     if (req.indexOf("GET /") != -1) {
-      // Send the initial HTTP headers
       client.println("HTTP/1.1 200 OK");
       client.println("Content-Type: multipart/x-mixed-replace; boundary=frame");
       client.println();
@@ -92,7 +80,6 @@ void loop() {
           return;
         }
 
-        // Send the current frame
         client.print("--frame\r\n");
         client.print("Content-Type: image/jpeg\r\n");
         client.print("Content-Length: ");
@@ -103,12 +90,10 @@ void loop() {
 
         esp_camera_fb_return(fb);
 
-        // Small delay to prevent watchdog timer reset and control frame rate
-        delay(10);
+        delay(33);  // Control the frame rate to ~30 FPS
       }
     }
 
-    // Close the connection
     client.stop();
     Serial.println("Client disconnected");
   }
