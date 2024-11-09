@@ -1,0 +1,12 @@
+error_main error message:
+
+MPY: soft reboot
+Connected I2C devices: [119]
+Traceback (most recent call last):
+  File "<stdin>", line 13, in <module>
+  File "/lib/bmp280/bmp280_i2c.py", line 12, in __init__
+  File "/lib/bmp280/bmp280.py", line 13, in __init__
+  File "/lib/bmp280/bmp280.py", line 83, in configuration
+  File "/lib/bmp280/bmp280.py", line 88, in reset
+  File "/lib/bmp280/bmp280_i2c.py", line 16, in _write
+OSError: [Errno 5] EIO
