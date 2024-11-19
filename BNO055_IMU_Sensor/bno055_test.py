@@ -12,7 +12,9 @@ from bno055 import *
 
 # Pico: hard I2C doesn't work without this patch
 # https://github.com/micropython/micropython/issues/8167#issuecomment-1013696765
-i2c = machine.I2C(0, sda=machine.Pin(16), scl=machine.Pin(17))  # EIO error almost immediately
+
+# Use SoftI2C (works better for some reason)
+i2c = machine.SoftI2C(sda=machine.Pin(16), scl=machine.Pin(17), timeout=1000)
 
 # All platforms: soft I2C requires timeout >= 1000μs
 # i2c = machine.SoftI2C(sda=machine.Pin(16), scl=machine.Pin(17), timeout=1_000)
