@@ -23,6 +23,6 @@ To ensure efficient parallelism and reduced latency, we propose the following al
 3. Modify the provided code to integrate your sensor data acquisition and telemetry transmission tasks.
 
 ## References
-- [Raspberry Pi Pico Python SDK Documentation](https://datasheets.raspberrypi.com/pico/pico-python-sdk.pdf)
+- [Raspberry Pi Pico Python SDK Documentation](https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf)
 - [Raspberry Pi Pico SDK GitHub Repository](https://github.com/raspberrypi/pico-sdk)
-
+- [Rasberry Pi Pico Getting Started](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html)
