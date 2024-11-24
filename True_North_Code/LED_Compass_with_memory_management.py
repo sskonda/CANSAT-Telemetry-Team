@@ -11,7 +11,7 @@ i2c0 = I2C(0, sda=i2c0_sda, scl=i2c0_scl, freq=400000)
 
 bmp280_i2c = BMP280I2C(0x77, i2c0)
 
-i2c_imu = I2C(1, sda=Pin(16), scl=Pin(17), freq=400000)
+i2c_imu = SoftI2C(sda=Pin(16), scl=Pin(17), timeout=1000)
 imu = BNO055(i2c_imu)
 
 # Initialize PWM for LED
