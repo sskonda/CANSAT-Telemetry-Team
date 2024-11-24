@@ -1,3 +1,5 @@
+#This code seems to crash frequently we need to find a way to fix this so that this doesn't become an issue during launch
+
 from machine import Pin, I2C, PWM
 from utime import sleep
 from bmp280 import BMP280I2C
