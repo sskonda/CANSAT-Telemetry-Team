@@ -62,7 +62,7 @@ The `running` variable acts as a global control flag for both threads:
 
 ## Servo Compass
 - Modify the first iteration code to work with a 360 degree servo motor
-  - The Servo motor should point north at all times, taking input from th gyroscope to know which way it should adjust
+  - The Servo motor should point north at all times, taking input from the gyroscope to know which way it should adjust
 
 ## Camera Compass
 - Modify the code so that it points the camera to the direction of magnetic north and keeps it there, adjusting for any movement by taking readings from the Gyroscope
