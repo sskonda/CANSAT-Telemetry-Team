@@ -19,10 +19,11 @@ LED_OUT = PWM(Pin(6))
 LED_OUT.freq(1000)
 LED_OUT.duty_u16(int(65536 * 0.5))  # Set initial brightness to 50%
 
-# Global variables for communication between threads
+# Global variables for thread communication
 shared_mag_x = 0
 shared_mag_y = 0
-data_lock = _thread.allocate_lock()  # Mutex to protect shared data
+data_lock = _thread.allocate_lock()  # Mutex for shared data
+running = True  # Flag to signal threads to terminate
 
 def calculate_heading(mag_x, mag_y):
     """Calculate heading in degrees (0-360)."""
@@ -33,10 +34,10 @@ def calculate_heading(mag_x, mag_y):
 
 def core0_task():
     """Core 0: Read and display sensor data."""
-    global shared_mag_x, shared_mag_y
+    global shared_mag_x, shared_mag_y, running
 
     calibrated = False
-    while True:
+    while running:
         try:
             # Check calibration status
             if not calibrated:
@@ -60,17 +61,15 @@ def core0_task():
                 print(f"BNO055 error: {e}")
 
             sleep(0.1)  # Adjust delay as needed
-        except KeyboardInterrupt:
-            print("Core 0 task stopped.")
-            break
         except Exception as e:
             print(f"Core 0 unexpected error: {e}")
+    print("Core 0 task terminated.")
 
 def core1_task():
     """Core 1: Calculate heading and adjust LED brightness."""
-    global shared_mag_x, shared_mag_y
+    global shared_mag_x, shared_mag_y, running
 
-    while True:
+    while running:
         try:
             with data_lock:  # Lock to safely read shared data
                 mag_x, mag_y = shared_mag_x, shared_mag_y
@@ -88,14 +87,18 @@ def core1_task():
             print(f"Brightness: {brightness}")
 
             sleep(0.1)  # Adjust delay as needed
-        except KeyboardInterrupt:
-            print("Core 1 task stopped.")
-            break
         except Exception as e:
             print(f"Core 1 unexpected error: {e}")
+    print("Core 1 task terminated.")
 
 # Start Core 1
 _thread.start_new_thread(core1_task, ())
 
-# Run Core 0 task on main core
-core0_task()
+try:
+    # Run Core 0 task on main core
+    core0_task()
+except KeyboardInterrupt:
+    print('Keyboard Interrupt')
+    running = False  # Signal threads to terminate
+    sleep(0.1)
+    print("Program is Done")

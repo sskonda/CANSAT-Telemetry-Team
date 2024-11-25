@@ -31,7 +31,7 @@ def core0(del1, del2):
             greenLED.value(0)
             time.sleep(del2)
 _thread.start_new_thread(core0, (delOn, delOff))
-time.sleep(25)
+time.sleep(0.25)
 while True:
     LED = "RED"
     for i in range(0, 180, 1):
