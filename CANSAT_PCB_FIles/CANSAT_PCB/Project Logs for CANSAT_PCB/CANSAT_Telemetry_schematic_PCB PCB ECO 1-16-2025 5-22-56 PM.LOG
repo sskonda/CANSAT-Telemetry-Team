@@ -1,0 +1,9 @@
+Add Pin To Net: Unknown Pin: Pin BMP280-GND
+Add Pin To Net: Unknown Pin: Pin BMP280-SCK
+Add Pin To Net: Unknown Pin: Pin BMP280-SD1
+Add Pin To Net: Unknown Pin: Pin BNO055-GND
+Add Pin To Net: Unknown Pin: Pin BNO055-SCL
+Add Pin To Net: Unknown Pin: Pin BNO055-SDA
+Add Pin To Net: Unknown Pin: Pin BNO055-Vin
+Add Class Member: Failed to add class member : Component BMP280 BMP280_BreakoutBoard
+Add Class Member: Failed to add class member : Component BNO055

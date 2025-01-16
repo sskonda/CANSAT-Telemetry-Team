@@ -1,0 +1,9 @@
+Add Pin To Net: Unknown Pin: Pin U?-GND
+Add Pin To Net: Unknown Pin: Pin U?-GND
+Add Pin To Net: Unknown Pin: Pin U?-RESET
+Add Pin To Net: Unknown Pin: Pin U?-SCK
+Add Pin To Net: Unknown Pin: Pin U?-SCL
+Add Pin To Net: Unknown Pin: Pin U?-SD1
+Add Pin To Net: Unknown Pin: Pin U?-SDA
+Added Member To Class: ClassName=CANSAT_Telemetry_schematic Member=Component U? Raspberry Pi Pico
+Added Member To Class: ClassName=CANSAT_Telemetry_schematic Member=Component U? BNO055

@@ -1,0 +1,22 @@
+Added Component: Designator=GPS(AdafruitUltimateGPS)
+Added Component: Designator=U?(Raspberry Pi Pico)
+Added Pin To Net: NetName=3V3 Pin=U?-36
+Added Net: Name=3V3
+Added Pin To Net: NetName=GND Pin=U?-3
+Added Pin To Net: NetName=GND Pin=U?-8
+Added Pin To Net: NetName=GND Pin=U?-13
+Added Pin To Net: NetName=GND Pin=U?-18
+Added Pin To Net: NetName=GND Pin=U?-23
+Added Pin To Net: NetName=GND Pin=U?-28
+Added Pin To Net: NetName=GND Pin=U?-33
+Added Pin To Net: NetName=GND Pin=U?-38
+Added Net: Name=GND
+Added Pin To Net: NetName=GP8 Pin=U?-11
+Added Net: Name=GP8
+Added Pin To Net: NetName=GP9 Pin=U?-12
+Added Net: Name=GP9
+Added Pin To Net: NetName=GP16 Pin=U?-21
+Added Net: Name=GP16
+Added Pin To Net: NetName=GP17 Pin=U?-22
+Added Net: Name=GP17
+Added Class: Name=CANSAT_Telemetry_schematic

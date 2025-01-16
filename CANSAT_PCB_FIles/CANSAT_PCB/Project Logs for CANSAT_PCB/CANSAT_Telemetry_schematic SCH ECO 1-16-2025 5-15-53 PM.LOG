@@ -1,0 +1,7 @@
+Remove Pin=BMP280-SCK From Net=GP9
+Remove Pin=BMP280-SD1 From Net=GP8
+Remove Pin=BMP280-VIN From Net=3V3
+Remove Pin=BNO055-RESET From Net=3V3
+Remove Pin=BNO055-SCL From Net=GP17
+Remove Pin=BNO055-SDA From Net=GP16
+Remove Pin=BNO055-Vin From Net=3V3
