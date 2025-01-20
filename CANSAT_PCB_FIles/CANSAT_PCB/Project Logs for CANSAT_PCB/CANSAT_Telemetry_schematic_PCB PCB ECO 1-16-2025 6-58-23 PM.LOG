@@ -1,0 +1,12 @@
+Change Component Designator: OldDesignator=GPSE NewDesignator=GPS
+Added Pin To Net: NetName=GND Pin=GPS-GND
+Add Pin To Net: Unknown Pin: Pin U?-GND
+Add Pin To Net: Unknown Pin: Pin U?-GND
+Add Pin To Net: Unknown Pin: Pin U?-SCK
+Add Pin To Net: Unknown Pin: Pin U?-SCL
+Add Pin To Net: Unknown Pin: Pin U?-SD1
+Add Pin To Net: Unknown Pin: Pin U?-SDA
+Add Pin To Net: Unknown Pin: Pin U?-Vin
+Add Pin To Net: Unknown Pin: Pin U?-VIN
+Added Member To Class: ClassName=CANSAT_Telemetry_schematic Member=Component U? BNO055
+Added Member To Class: ClassName=CANSAT_Telemetry_schematic Member=Component U? Raspberry Pi Pico
