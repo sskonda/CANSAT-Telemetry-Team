@@ -1,0 +1,62 @@
+Added Component: Designator=BMP280*(BMP280_BreakoutBoard)
+Added Component: Designator=BNO055*(BNO055_BreakoutBoard)
+Added Component: Designator=GPS*(AdafruitUltimateGPS)
+Added Component: Designator=INA260*(INA260_Breakout)
+Added Component: Designator=PiPico(Raspberry Pi Pico)
+Added Component: Designator=U3V70F5*(U3V70F5)
+Added Pin To Net: NetName=GND Pin=BMP280*-GND
+Add Pin To Net: Unknown Pin: Pin BMP280*-SCK
+Add Pin To Net: Unknown Pin: Pin BMP280*-SD1
+Added Pin To Net: NetName=3V3 Pin=BMP280*-VIN
+Added Pin To Net: NetName=GND Pin=BNO055*-GND
+Added Pin To Net: NetName=GP17_SCL Pin=BNO055*-SCL
+Added Pin To Net: NetName=GP16_SDA Pin=BNO055*-SDA
+Added Pin To Net: NetName=3V3 Pin=BNO055*-VIN
+Add Pin To Net: Unknown Pin: Pin ESP32-CAM_1-5V
+Add Pin To Net: Unknown Pin: Pin ESP32-CAM_2-5V
+Added Pin To Net: NetName=GND Pin=GPS*-GND
+Added Pin To Net: NetName=GP13_RX Pin=GPS*-RX
+Added Pin To Net: NetName=GP12_TX Pin=GPS*-TX
+Added Pin To Net: NetName=3V3 Pin=GPS*-VIN
+Added Pin To Net: NetName=GND Pin=INA260*-GND
+Added Pin To Net: NetName=GP21_SCL Pin=INA260*-SCL
+Added Pin To Net: NetName=GP20_SDA Pin=INA260*-SDA
+Added Pin To Net: NetName=3V3 Pin=INA260*-VCC
+Added Pin To Net: NetName=BAT_3V7 Pin=INA260*-VIN+
+Added Pin To Net: NetName=GND Pin=INA260*-VIN-
+Add Pin To Net: Unknown Pin: Pin N1-S
+Add Pin To Net: Unknown Pin: Pin N2-S
+Added Pin To Net: NetName=GND Pin=PiPico-3
+Added Pin To Net: NetName=GND Pin=PiPico-8
+Added Pin To Net: NetName=GP8_SDA Pin=PiPico-11
+Added Pin To Net: NetName=GP9_SCL Pin=PiPico-12
+Added Pin To Net: NetName=GND Pin=PiPico-13
+Added Pin To Net: NetName=GP12_TX Pin=PiPico-16
+Added Pin To Net: NetName=GP13_RX Pin=PiPico-17
+Added Pin To Net: NetName=GND Pin=PiPico-18
+Added Pin To Net: NetName=GP16_SDA Pin=PiPico-21
+Added Pin To Net: NetName=GP17_SCL Pin=PiPico-22
+Added Pin To Net: NetName=GND Pin=PiPico-23
+Added Pin To Net: NetName=GP20_SDA Pin=PiPico-26
+Added Pin To Net: NetName=GP21_SCL Pin=PiPico-27
+Added Pin To Net: NetName=GND Pin=PiPico-28
+Added Pin To Net: NetName=GND Pin=PiPico-33
+Added Pin To Net: NetName=3V3 Pin=PiPico-36
+Added Pin To Net: NetName=GND Pin=PiPico-38
+Added Pin To Net: NetName=+5 Pin=PiPico-39
+Added Pin To Net: NetName=GND Pin=U3V70F5*-GND_IN
+Added Pin To Net: NetName=GND Pin=U3V70F5*-GND_OUT
+Added Pin To Net: NetName=BAT_3V7 Pin=U3V70F5*-VIN
+Added Pin To Net: NetName=+5 Pin=U3V70F5*-VOUT_5V
+Added Net: Name=NetESP32-CAM_1_GND
+Added Net: Name=NetESP32-CAM_2_GND
+Added Member To Class: ClassName=CANSAT_Telemetry_schematic Member=Component BMP280* BMP280_BreakoutBoard*
+Added Member To Class: ClassName=CANSAT_Telemetry_schematic Member=Component BNO055*
+Add Class Member: Failed to add class member : Component ESP32-CAM_1
+Add Class Member: Failed to add class member : Component ESP32-CAM_2
+Added Member To Class: ClassName=CANSAT_Telemetry_schematic Member=Component GPS*
+Added Member To Class: ClassName=CANSAT_Telemetry_schematic Member=Component INA260*
+Add Class Member: Failed to add class member : Component N1 2N7000
+Add Class Member: Failed to add class member : Component N2 2N7000
+Added Member To Class: ClassName=CANSAT_Telemetry_schematic Member=Component PiPico Raspberry Pi Pico
+Added Member To Class: ClassName=CANSAT_Telemetry_schematic Member=Component U3V70F5*

@@ -1,0 +1,10 @@
+Added Component: Designator=ESP32-CAM_1(ESP32-CAM)
+Added Component: Designator=ESP32-CAM_2(2N7000)
+Add Pin To Net: Unknown Pin: Pin BMP280*-SCK
+Add Pin To Net: Unknown Pin: Pin BMP280*-SD1
+Added Pin To Net: NetName=+5 Pin=ESP32-CAM_1-5V
+Added Pin To Net: NetName=NetESP32-CAM_1_GND Pin=ESP32-CAM_1-GND
+Add Pin To Net: Unknown Pin: Pin ESP32-CAM_2-5V
+Add Pin To Net: Unknown Pin: Pin ESP32-CAM_2-GND
+Added Member To Class: ClassName=CANSAT_Telemetry_schematic Member=Component ESP32-CAM_1
+Added Member To Class: ClassName=CANSAT_Telemetry_schematic Member=Component ESP32-CAM_2
