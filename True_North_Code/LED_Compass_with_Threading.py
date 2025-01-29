@@ -19,6 +19,10 @@ LED_OUT = PWM(Pin(6))
 LED_OUT.freq(1000)
 LED_OUT.duty_u16(int(65536 * 0.5))  # Set initial brightness to 50%
 
+# Initialize PWM for Servo (GPIO 7)
+SERVO = PWM(Pin(7))
+SERVO.freq(50)  # Standard servo frequency: 50Hz
+
 # Global variables for thread communication
 shared_mag_x = 0
 shared_mag_y = 0
@@ -31,6 +35,17 @@ def calculate_heading(mag_x, mag_y):
     if heading < 0:
         heading += 360
     return heading
+
+def set_servo_angle(angle):
+    """
+    Set the servo angle (0-180 degrees).
+    - For 180° servo: Maps angle to duty cycle (500-2500 microseconds).
+    - For 360° servo: Modify logic to control speed/direction.
+    """
+    min_duty = 1638  # 500us pulse (0 degrees)
+    max_duty = 8192  # 2500us pulse (180 degrees)
+    duty = int((angle / 180) * (max_duty - min_duty) + min_duty)
+    SERVO.duty_u16(duty)
 
 def core0_task():
     """Core 0: Read and display sensor data."""
@@ -66,7 +81,7 @@ def core0_task():
     print("Core 0 task terminated.")
 
 def core1_task():
-    """Core 1: Calculate heading and adjust LED brightness."""
+    """Core 1: Calculate heading and adjust LED brightness + Servo position."""
     global shared_mag_x, shared_mag_y, running
 
     while running:
@@ -85,6 +100,11 @@ def core1_task():
             brightness = int((1 - angle_diff / 180) * 65535)
             LED_OUT.duty_u16(brightness)
             print(f"Brightness: {brightness}")
+
+            # Adjust Servo to Point North
+            servo_angle = angle_diff  # Direct mapping for a 180° servo
+            set_servo_angle(servo_angle)
+            print(f"Servo Angle: {servo_angle}°")
 
             sleep(0.1)  # Adjust delay as needed
         except Exception as e:
