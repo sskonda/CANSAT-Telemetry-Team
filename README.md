@@ -13,8 +13,8 @@ The telemetry subsystem covered in this repository includes the following key re
 - **Handling data transmission** to the ground station.
 
 ## Repository Structure  
-- **`Libraries/`**: Contains the necessary sensor and motor libraries, which must be uploaded to the microcontroller (e.g., Raspberry Pi Pico) for compatibility with the Thonny IDE.
-- **`Power Subsystem/`**: Configuration files and scripts to manage power distribution and battery status monitoring.
+- **Individual Sensors Names**: Contains the necessary sensor and motor libraries, which must be uploaded to the microcontroller (e.g., Raspberry Pi Pico) for compatibility with the Thonny IDE.
+- **CANSAT_PCB_Files**: Configuration files and scripts to manage power distribution and battery status monitoring.
 - **`Sensor Integration/`**: Example code and test files for sensors such as temperature, GPS, gyroscopes, and magnetometers, ensuring accurate data collection.
 - **`Motor Control/`**: Scripts to manage motors or actuators involved in the payload’s auto-gyro descent mechanism.
 
@@ -26,6 +26,20 @@ The telemetry subsystem covered in this repository includes the following key re
 2. **Testing the Subsystem**:  
    Use individual test scripts provided in the repository to validate each sensor and motor module. Ensure that the telemetry data is transmitted to the ground station at the required **1 Hz interval** during testing.
 
+## Software Raspberry Pi PIco connections for CANSAT (i.e. whcih GPIO Pins are connected to What)
+
+ - **GP 6** PWM for LED to point Bottom Camera North
+ - **GP 7 PWM** for Servo to point Bottom Camera North
+
+ - **GP 8** BMP280 SDA
+ - **GP 9** BMP280 SCL
+
+ - **GP 12** Adafruit Ultimate GPS TX (UART Transmit)
+ - **GP 13** Adafruit Ultimate GPS RX (UART Receive)
+
+ - **GP 16** BNO055 SDA
+ - **GP 17** BNO055 SCL
+
 ## Contribution Guidelines  
 1. **Branching**: Use feature-specific branches to add or modify subsystem components.  
 2. **Documentation**: Update the README or relevant code comments with clear descriptions of any changes.  
@@ -35,4 +49,6 @@ The telemetry subsystem covered in this repository includes the following key re
 - Integrate all subsystem components with the flight software.  
 - Conduct full end-to-end testing of telemetry data transmission to the ground station.  
 - Implement fault-tolerant mechanisms for power and communication systems during flight.
+- Finish Coding INA260 Sensor and adding state machine logic for the controlling of other actuators on the CANSAT
+- Program and Test XBEE radios (make sure they are actually transmitting to the GUI)
 
